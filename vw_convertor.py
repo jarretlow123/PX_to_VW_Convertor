@@ -34,6 +34,7 @@ def main():
         # Read the target file
         try:
             f = open(file, "r")
+            css = f.read()
         except FileNotFoundError:
             print(f"{colors.RED}[X] File '{file}' not found!")
             continue
@@ -41,11 +42,8 @@ def main():
             print(f"{colors.RED}[X] Error reading the file {file}!")
             continue
         
-        # Change replace px with vw
-        css = (f.read()).replace("px","vw")
-        
         # regex pattern of (value)px
-        PATTERN = r'(\b\d+\.?\d*)vw\b'
+        PATTERN = r'(\b\d+\.?\d*)px\b'
         
         # Find all occurrences of values followed by "px"
         px_values = re.findall(PATTERN , css)
