@@ -1,2 +1,2 @@
-# PX to VW Convert (Python)
+# PX to VW Convertor (Python)
 
