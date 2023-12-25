@@ -13,7 +13,7 @@ This Python script converts pixel (px) values in CSS files to viewport width (vw
    Modify the `config.json` file with the necessary parameters:
    ```json
    {
-       "screen_width": 1920,  # Replace with your screen width
+       "screen_width": 1920,  // Replace with your screen width
        "files": [
            "file1.css",
            "file2.css",
