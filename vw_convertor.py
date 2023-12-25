@@ -45,17 +45,17 @@ def main():
         css = (f.read()).replace("px","vw")
         
         # regex pattern of (value)px
-        pattern = r'(\b\d+\.?\d*)vw\b'
+        PATTERN = r'(\b\d+\.?\d*)vw\b'
         
         # Find all occurrences of values followed by "px"
-        px_values = re.findall(pattern , css)
+        px_values = re.findall(PATTERN , css)
         
         # Calculate the value for vw
         for i in range(len(px_values)):
             px_values[i] = str(round((float(px_values[i])*100)/CONFIG['screen_width'],4))
             
         # Replace the calculated values back in the CSS
-        css = re.sub(pattern, lambda x: f"{px_values.pop(0)}vw", css)
+        css = re.sub(PATTERN, lambda x: f"{px_values.pop(0)}vw", css)
         
         # save the changes
         try:
