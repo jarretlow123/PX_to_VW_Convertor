@@ -14,11 +14,13 @@ class colors:
     RESET = '\033[0m'
 
 def main():
+    print(colors.RESET)
+    print(HEADER)
+    
     # load content of config file
     try:
         with open('config.json', 'r') as file:
             CONFIG = json.load(file)
-            print(HEADER)
             print(f"{colors.GREEN}[!] Loading config.json")
     except FileNotFoundError:
         print(f"{colors.RED}[X] File 'config.json' not found!")
@@ -26,6 +28,11 @@ def main():
     except IOError:
         print(f"{colors.RED}[X] Error reading the file 'config.json'!")
         return
+    
+    if CONFIG['files'] == None or len(CONFIG['files']) < 1:
+        print(f"{colors.YELLOW}[!] No file in configuration! Please check your config.json.")
+    else:
+        print(f"{colors.YELLOW}[!] Total number of css to convert: {len(CONFIG['files'])}")
     
     # process the file 
     for file in CONFIG['files']:
