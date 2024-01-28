@@ -1,6 +1,6 @@
 # PX to VW Convertor (Python)
 
-This Python script converts pixel (px) values in specify CSS files to viewport width (vw) units based on a specified screen width.
+This Python script could converts pixel (px) values in specify CSS files to viewport width (vw) units based on a specified screen width.
 
 ## Usage
 
